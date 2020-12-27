@@ -1,0 +1,15 @@
+<div [ngClass]="{'notificationContainer':errorCount>0 ,'notificationContainerAbs':errorCount<=0 } " *ngIf="messages.length>0" >
+  <div style="position: relative;">
+    <div class="notificationwrapper">
+      <div class="notification card-1" *ngFor="let message of messages;let i=index" [ngClass]="{'is-info':     message.style=='info',
+                           'is-danger':   message.style=='danger',
+                           'is-success':  message.style=='success',
+                           'is-warning':message.style=='warning'}">
+
+        <button class="delete" (click)="dismiss(i)"></button>
+        <div> {{message.content}}</div>
+        <div class="notificationError">{{message.error}}</div>
+      </div>
+    </div>
+  </div>
+</div>
